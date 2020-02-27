@@ -169,8 +169,33 @@ public function commentsection()
         $getAll_categories  = DB::table('categories')->get();
         $cart = new Cart();
         $items = $cart->getItems();
+        $total = $cart->getTotal();
         //print_r($items);
-        return view("cartdetails")->with("myitems",$items)->with('get_category',$getAll_categories);
+        return view("cartdetails")->with("myitems",$items)->with('get_category',$getAll_categories)->with("grandtotal",$total);
+    }
+
+    function deccart($id,$quan){
+        $cart = new Cart();
+        $newquan = $quan - 1;
+        if($newquan>0)
+        {
+        $cart->updateQty($id,$newquan);
+        }
+        return redirect("/cartdetails");
+
+    }
+    function inccart($id,$quan){
+        $cart = new Cart();
+        $newquan = $quan + 1;
+        $cart->updateQty($id,$newquan);
+        return redirect("/cartdetails");
+
+    }
+    function delcart($id){
+       $cart = new Cart();
+        $cart->remove($id);
+        return redirect("/cartdetails");
     }
    
 }
+

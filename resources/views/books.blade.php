@@ -1,49 +1,5 @@
 @extends('master')
 @section('leftarea')
-<script>
-$(document).ready(function () {
-	getcart()
-	 	$('.addcart').click(function(){
-		var bid =$(this).attr('bookid');
-		var bname =$(this).attr('bookname');
-	 	var bprice =$(this).attr('bookprice');
-	 	var bimg =$(this).attr('bookimage');
-	 	var bquan =$('.bookquan').val();
-	 	$.ajax({
-	 		url:'http://localhost/lara1pm/addcart',
-	 		method:'get',
-	 		data:{bid:bid,bname:bname,bprice:bprice,bimg:bimg,bquan:bquan},
-	 		success:function(res){
-	 			getcart()
-	 			//alert(res);
-	 			//alert(bid+bname+bprice+bimg+bquan);
-	 		},
-	 		error:function(){
-	 			alert("Not ");
-	 		}
-
-	 	})
-	 })
-
-	 	function getcart(){
-	 		$.ajax({
-	 			url:'http://localhost/lara1pm/getcartdetails',
-	 			method :'get',
-				success:function(res){
-					
-					$('#cartinfoarea').html(res);
-				},
-				error:function()
-			  {
-				 alert('Not Working');
-				}
-
-	 		})
-	 	}
-})
-
-</script>
-
 <h1>Books</h1>
 	
 	<br><br>

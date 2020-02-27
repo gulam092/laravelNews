@@ -19,6 +19,10 @@ Route::get('/addcart',"FrontPanel@addcart");
 Route::get('/getcartdetails',"FrontPanel@getcartdetails");
 Route::get('/cartdetails','FrontPanel@cartdetails');
 
+Route::get('/deccart/{id}/{quan}',"FrontPanel@deccart");
+Route::get('/inccart/{id}/{quan}',"FrontPanel@inccart");
+Route::get('/delcart/{id}','FrontPanel@delcart');
+
 Route::get('/admin','AdminPanel@login');
 Route::post('/admin/postlogin',"AdminPanel@postlogin");
 Route::get('/admin/dashboard','AdminPanel@dashboard');
@@ -48,3 +52,7 @@ Route::get('/admin/contact','AdminPanel@contact');
 Route::get('/admin/deletecontact/{id}','AdminPanel@deletecontact');
 
 Route::get('/admin/logout','AdminPanel@logout');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
