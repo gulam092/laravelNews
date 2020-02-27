@@ -320,7 +320,7 @@ public function deletebook($id,$img)
 }
 public function postupdatebook(Request $req)
 {
-      $hidden_book_Id         = $req->hidden_id;
+      $hidden_book_Id         =$req->hidden_id;
       $hidden_book_image      = $req->hidden_img;
       $update_book_tite       =$req->title;
       $upadte_book_price      =$req->price;
