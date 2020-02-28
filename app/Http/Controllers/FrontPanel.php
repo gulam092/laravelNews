@@ -70,7 +70,7 @@ class FrontPanel extends Controller
 
 public function comment($nid)
 {     
-    $getAll_commnet  =DB::table('comment_table')->get();
+    $getAll_commnet  =DB::table('comment_table')->skip(0)->take(4)->get();
      $getAll_categories  = DB::table('categories')->get();
           $getAll_news = DB::table('news')->where('id',$nid)->first();
            return view('commentsection')->with(['get_category'=>$getAll_categories,'getAll_news'=>$getAll_news,'commentAll'=>$getAll_commnet]);
@@ -99,7 +99,7 @@ public function commentsubmitted(Request $request)
 
 public function commentsection()
 {
-    $getAll_commnet  =DB::table('comment_table')->get();
+    $getAll_commnet  =DB::table('comment_table')->skip(0)->take(4)->get();
    
     $getAll_categories  = DB::table('categories')->get();
     $getAll_news = DB::table('news')->first();

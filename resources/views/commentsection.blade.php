@@ -10,13 +10,22 @@
 						<div class="w3agile-middle">
 							{!! Form::open(array('url'=>'/commentsubmitted','enctype'=>'multipart/form-data')) !!}
 						<ul>
-
+                             
 							<li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>{{$getAll_news->date}}</a></li>
 							<li><a href="#"><i class="fa fa-thumbs-up" aria-hidden="true"></i>201 LIKES</a></li>
-							<li><i class="fa fa-comment" aria-hidden="true"></i><strong>{{$commentAll->count()}}COMMENTS</strong></li>
-
-							{{Form::text('comment','',["class"=>"form-control","placeholder"=>"commnet here"])}}
-							
+                             <li><i class="fa fa-comment" aria-hidden="true"></i>
+								<strong>{{$commentAll->count()}}COMMENTS</strong></li>
+								 @foreach($commentAll as $commentData)
+								 <table>
+    							
+    							<tr>
+					        	<td><a href="">{{$commentData->author}}</a>:</td>
+					        	<td>{{$commentData->comment}}</td>
+								</tr>
+					    		
+					  			</table>
+                               @endforeach()
+                          {{Form::text('comment','',["class"=>"form-control","placeholder"=>"commnet here"])}}
 							<!-- {{form::submit('submit',["class"=>"btn btn-success"])}} -->
 							
 							{!! Form::close() !!}
