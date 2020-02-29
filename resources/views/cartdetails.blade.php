@@ -36,7 +36,7 @@
 					<td>Rs {{$item->price}} /-</td>					
 					<td> <a href="{{url('/decrease_cart_item/'.$item->id.'/'.$item->quantity)}}" style="text-decoration: none; height: 30; width: 30;" ><img src="{{asset('public/cardimages/minus.jpg')}}" alt="" style="height:12px; width: 18px;"></a> {{$item->quantity}} <a href="{{url('/Increase_cart_item/'.$item->id.'/'.$item->quantity)}}" style="text-decoration:none;"><img src="{{asset('public/cardimages/add.jpg')}}" alt="" style="height:15px; width: 15px;"></a></td>
 					<td>Rs {{$item->price * $item->quantity}} /-</td>
-					<td><a href="{{url('/delcart/'.$item->id)}}" onclick="return confirm('Are You Sure To Delete ?')"><img src="{{asset('public/cardimages/delete.jpg')}}" alt="" style="height:12px; width: 18px;"></a></td>
+					<td><a href="{{url('/delete-cart/'.$item->id)}}" onclick="return confirm('Are You Sure To Delete ?')"><img src="{{asset('public/cardimages/delete.jpg')}}" alt="" style="height:12px; width: 18px;"></a></td>
 				</tr>
 				@php
 				$sn++;

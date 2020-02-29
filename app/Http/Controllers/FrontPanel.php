@@ -167,9 +167,9 @@ public function commentsection()
     function cartdetails()
     {  
         $getAll_categories  = DB::table('categories')->get();
-        $cart = new Cart();
-        $items = $cart->getItems();
-        $total = $cart->getTotal();
+        $cart_Object = new Cart();
+        $items = $cart_Object->getItems();
+        $total = $cart_Object->getTotal();
         //print_r($items);
         return view("cartdetails")->with("myitems",$items)->with('get_category',$getAll_categories)->with("grandtotal",$total);
     }
@@ -191,9 +191,9 @@ public function commentsection()
         return redirect("/cartdetails");
 
     }
-    function delcart($id){
+    function Delete_Cart_Item($delete_id){
         $cart_Object = new Cart();
-        $cart_Object->remove($id);
+        $cart_Object->remove($delete_id);
         return redirect("/cartdetails");
     }
    

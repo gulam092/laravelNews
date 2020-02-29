@@ -392,9 +392,6 @@ if ($getAllcontact->delete()) {
 
 
 
-
-
-
 <style>
   .page-link{
     background-color:  red;

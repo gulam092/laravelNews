@@ -22,7 +22,7 @@ Route::get('/cartdetails','FrontPanel@cartdetails');
 Route::get('/decrease_cart_item/{item_id}/{quantity}',"FrontPanel@Decrease_Item_In_Cart");
 
 Route::get('/Increase_cart_item/{item_id}/{quantity}',"FrontPanel@Increase_Item_In_Cart");
-Route::get('/delcart/{id}','FrontPanel@delcart');
+Route::get('/delete-cart/{id}','FrontPanel@Delete_Cart_Item');
 
 Route::get('/admin','AdminPanel@login');
 Route::post('/admin/postlogin',"AdminPanel@postlogin");
