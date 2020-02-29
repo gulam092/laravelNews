@@ -140,7 +140,7 @@ public function commentsection()
     public function addcart()
     {
        extract($_GET);
-        $data  =[
+        $get_cart_data  =[
             'id' => $bid,
             'name' => $bname,
             'price' => $bprice,
@@ -148,8 +148,8 @@ public function commentsection()
             'quantity' => $bquan
         ];
   
-        $cart = new Cart();
-        if($cart->add($data))
+        $get_Cart_Object = new Cart();
+        if($get_Cart_Object->add($get_cart_data))
         {
             echo "Cart Added Successfully";
         }
@@ -157,10 +157,10 @@ public function commentsection()
 
     function getcartdetails()
     {
-        $cart = new Cart();
+        $get_Cartdetails_Object = new Cart();
         
-        $total = $cart->count();
-        $total_price = $cart->getTotal();
+        $total = $get_Cartdetails_Object->count();
+        $total_price = $get_Cartdetails_Object->getTotal();
         
         echo "$total ITEMS | PRICE Rs $total_price /-";
     }
@@ -174,26 +174,26 @@ public function commentsection()
         return view("cartdetails")->with("myitems",$items)->with('get_category',$getAll_categories)->with("grandtotal",$total);
     }
 
-    function deccart($id,$quan){
-        $cart = new Cart();
-        $newquan = $quan - 1;
-        if($newquan>0)
+    function Decrease_Item_In_Cart($item_id,$quantity){
+        $cart_Object            = new Cart();
+        $Decrease_new_quantity  = $quantity - 1;
+        if($Decrease_new_quantity>0)
         {
-        $cart->updateQty($id,$newquan);
+        $cart_Object->updateQty($item_id,$Decrease_new_quantity);
         }
         return redirect("/cartdetails");
 
     }
-    function inccart($id,$quan){
-        $cart = new Cart();
-        $newquan = $quan + 1;
-        $cart->updateQty($id,$newquan);
+    function Increase_Item_In_Cart($item_id,$quantity){
+        $cart_Object = new Cart();
+        $Increase_new_quantity = $quantity + 1;
+        $cart_Object->updateQty($item_id,$Increase_new_quantity);
         return redirect("/cartdetails");
 
     }
     function delcart($id){
-       $cart = new Cart();
-        $cart->remove($id);
+        $cart_Object = new Cart();
+        $cart_Object->remove($id);
         return redirect("/cartdetails");
     }
    

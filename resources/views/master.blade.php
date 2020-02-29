@@ -92,7 +92,7 @@ $(document).ready(function () {
 	 			//alert(bid+bname+bprice+bimg+bquan);
 	 		},
 	 		error:function(){
-	 			alert("Not ");
+	 			alert("Not Working ");
 	 		}
 
 	 	})

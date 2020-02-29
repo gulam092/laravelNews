@@ -19,8 +19,9 @@ Route::get('/addcart',"FrontPanel@addcart");
 Route::get('/getcartdetails',"FrontPanel@getcartdetails");
 Route::get('/cartdetails','FrontPanel@cartdetails');
 
-Route::get('/deccart/{id}/{quan}',"FrontPanel@deccart");
-Route::get('/inccart/{id}/{quan}',"FrontPanel@inccart");
+Route::get('/decrease_cart_item/{item_id}/{quantity}',"FrontPanel@Decrease_Item_In_Cart");
+
+Route::get('/Increase_cart_item/{item_id}/{quantity}',"FrontPanel@Increase_Item_In_Cart");
 Route::get('/delcart/{id}','FrontPanel@delcart');
 
 Route::get('/admin','AdminPanel@login');
