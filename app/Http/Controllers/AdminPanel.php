@@ -52,6 +52,12 @@ class AdminPanel extends Controller
  
    	 return view("adminpages/category")->with('cat_data',$category_data);
    }
+   public function categoryApi()
+   {
+    $category_data = category::all();
+ 
+     return $category_data;
+   }
    public function addCategory()
    {
       return view('adminpages/addCategory');

@@ -130,6 +130,14 @@ public function commentsection()
        return view('photography');
     }
 
+  function booksApi()
+    {
+       
+        $getAll_books = DB::table('books')->get();
+
+        return $getAll_books;
+       
+    }
     function books()
     {
         $getAll_categories  = DB::table('categories')->get();

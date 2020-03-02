@@ -71,6 +71,69 @@ $(document).ready(function(){
 </script>
 <!-- //script for smooth drop down-nav -->
 </head>
+
+<script>
+$(document).ready(function(){
+    $(".dropdown").hover(            
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+            $(this).toggleClass('open');        
+        },
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+            $(this).toggleClass('open');       
+        }
+    );
+});
+</script>
+<!-- //script for smooth drop down-nav -->
+</head>
+
+
+<script>
+$(document).ready(function () {
+	getcart()
+	 	$('.addcart').click(function(){
+		var bid =$(this).attr('bookid');
+		var bname =$(this).attr('bookname');
+	 	var bprice =$(this).attr('bookprice');
+	 	var bimg =$(this).attr('bookimage');
+	 	var bquan =$('.bookquan').val();
+	 	$.ajax({
+	 		url:'http://localhost/lara1pm/addcart',
+	 		method:'get',
+	 		data:{bid:bid,bname:bname,bprice:bprice,bimg:bimg,bquan:bquan},
+	 		success:function(res){
+	 			getcart()
+	 			//alert(res);
+	 			//alert(bid+bname+bprice+bimg+bquan);
+	 		},
+	 		error:function(){
+	 			alert("Not Working ");
+	 		}
+
+	 	})
+	 })
+
+	 	function getcart(){
+	 		$.ajax({
+	 			url:'http://localhost/lara1pm/getcartdetails',
+	 			method :'get',
+				success:function(res){
+					
+					$('#cartinfoarea').html(res);
+				},
+				error:function()
+			  {
+				 alert('Not Working');
+				}
+
+	 		})
+	 	}
+})
+
+</script>
+
 <body>
 <!-- header -->
 	<header>
@@ -80,9 +143,9 @@ $(document).ready(function(){
 					<h1><a href="{{url('/')}}">Digital NewsPaper</a></h1>
 					<p>lets make a Life style</p>
 				</div>
-				<div class="w3ls-social-icons" id="cartinfoarea">
-				
-				</div>
+				 <a href="{{url('/cartdetails')}}"><div class="w3ls-social-icons" id="cartinfoarea">
+					<!-- cart details -->
+				</div></a>
 				<!-- <div class="w3ls-social-icons">
 					<a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
 					<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
